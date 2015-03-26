@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 04d8561ac5482274c8e35c6ebd2400ae
+timeCreated: 1424112205
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: no
+    21300002: norte
+    21300004: noreste
+    21300006: este
+    21300008: sureste
+    21300010: sur
+    21300012: suroeste
+    21300014: oeste
+    21300016: flecha_roja
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: no
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 280
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: norte
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 290
+        width: 1
+        height: 3
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: noreste
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 280
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: este
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 264
+        width: 9
+        height: 1
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sureste
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 251
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sur
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 251
+        width: 1
+        height: 3
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: suroeste
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 251
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: oeste
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 265
+        width: 9
+        height: 1
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flecha_roja
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 401
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

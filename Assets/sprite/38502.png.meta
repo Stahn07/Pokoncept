@@ -1,0 +1,495 @@
+fileFormatVersion: 2
+guid: 91e735bc0ce2cea40b8c994d283b2396
+timeCreated: 1426754686
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: intro_01
+    21300002: intro03_fondo01
+    21300004: hierba_01
+    21300006: hierba_02
+    21300008: hierba_03
+    21300010: hierba_025
+    21300012: hierba_040
+    21300014: hierba_041
+    21300016: hierba_042
+    21300018: hierba_043
+    21300020: hierba_050
+    21300022: hierba_051
+    21300024: hierba_044
+    21300026: hierba_052
+    21300028: intro03_fondo02
+    21300030: intro03_fondo03
+    21300032: gengar_00
+    21300034: nidorino_00
+    21300036: fondo_batalla_00
+    21300038: hierba_batalla_00
+    21300040: gengar_01
+    21300042: nidorino_01
+    21300044: gengar_02a
+    21300046: gengar_02b
+    21300048: gengar_02c
+    21300050: gengar_02d
+    21300052: nidorino_02a
+    21300054: nidorino_02b
+    21300056: nidorino_02c
+    21300058: nidorino_02d
+    21300060: nidorino_02e
+    21300062: fondo_batalla_01
+    21300064: hierbita
+    21300066: golpe
+    21300068: charizard_00
+    21300070: charizard_01
+    21300072: press_start
+    21300074: game_freak_copyright
+    21300076: logo_pokemon_00
+    21300078: fire_red_vesion
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: intro_01
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 539
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: intro03_fondo01
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 539
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_01
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 375
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_02
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 375
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_03
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 375
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_025
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 199
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_040
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 712
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_041
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 546
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_042
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 382
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_043
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 218
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_050
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 378
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_051
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 214
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_044
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 45
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_052
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 45
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: intro03_fondo02
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 708
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: intro03_fondo03
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 542
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gengar_00
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 287
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nidorino_00
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 219
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fondo_batalla_00
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 375
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierba_batalla_00
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 730
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gengar_01
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 294
+        width: 93
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nidorino_01
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 189
+        width: 110
+        height: 101
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gengar_02a
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 284
+        width: 83
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gengar_02b
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 284
+        width: 83
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gengar_02c
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 283
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gengar_02d
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 292
+        width: 95
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nidorino_02a
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 216
+        width: 63
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nidorino_02b
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 217
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nidorino_02c
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 217
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nidorino_02d
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 216
+        width: 62
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nidorino_02e
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 214
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fondo_batalla_01
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 539
+        width: 240
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hierbita
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 704
+        width: 60
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: golpe
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 707
+        width: 13
+        height: 67
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: charizard_00
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 776
+        width: 111
+        height: 99
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: charizard_01
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 776
+        width: 110
+        height: 99
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: press_start
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 721
+        width: 89
+        height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: game_freak_copyright
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 710
+        width: 148
+        height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: logo_pokemon_00
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 818
+        width: 166
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_red_vesion
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 704
+        width: 71
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
