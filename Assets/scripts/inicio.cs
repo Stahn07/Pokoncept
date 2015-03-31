@@ -17,12 +17,14 @@ public class inicio : MonoBehaviour
 
     private GameObject text_Original;
 
+    // TODO Al terminar, fix sprites max num
     public Sprite[] sprites_Menu_Azul;
     public Font pokefont;
     public Sprite[] backgrounds;
 
     private int index_Start_Menu;
     private int index_Help_Menu;
+    private int option;
 
     private Vector2[] spr_Pos =
     {
@@ -45,10 +47,17 @@ public class inicio : MonoBehaviour
         new Vector2(71f, 70f), //spr10_Help_Menu_1 (Ok)
         new Vector2(96f, 70f), //spr9_Help_Menu_1 (End)
 
-        new Vector2(85f, 70f), //spr11_Help_Menu_2 (AB_Cancel)
+        new Vector2(-100f, 45f), //spr12_Help_Menu_1 (Arrow_2)
 
+        //TODO Sprites que faltan y posiciones Arrow_2
+        //13
+        new Vector2(28f, 70f), //spr8_Help_Menu_2 (Pick)
+        new Vector2(56f, 70f), //spr10_Help_Menu_2 (Ok)
+        new Vector2(89f,70f), //spr13_Help_Menu_2 (Cancel)
 
+        new Vector2(-100f, 28f), //spr12_Help_Menu_2 (Arrow_2)
 
+        new Vector2(85f, 70f), //spr11_Help_Menu_3 (AB_Cancel)
 
     };
 
@@ -67,12 +76,11 @@ public class inicio : MonoBehaviour
         //TODO Revisar escenas
 
         new Vector2(-56f, 25f), //text0_Help_Menu_0 ~ Menu_2
-        new Vector2(-54f, 3f), //text1_Help_Menu_0
+        new Vector2(-54f, 3f), //text1_Help_Menu_0 && text1_Help_Menu_2
 
         new Vector2(-46f, -1f), //text1_Help_Menu_1
         new Vector2(-52f, -91f), //text2_Help_Menu_1
 
-        new Vector2(-54f, 3f), //text1_Help_Menu_2 && text1_Help_Menu_2
         new Vector2(-46f, -18f), //text2_Help_Menu_2
 
         new Vector2(-54f, -21f), // text2_Help_Menu_3
@@ -83,9 +91,12 @@ public class inicio : MonoBehaviour
     //TODO Corregir máximo sprites
     private GameObject[] sprites = new GameObject[8];
     private GameObject[] texts = new GameObject[3];
-    private GameObject[] text_Sombras = new GameObject[9];
+    private GameObject[] shadowText = new GameObject[9];
 
+    private Color shadowColor = new Color(0.3764f, 0.3764f, 0.3764f);
+    private Color shadowColor2 = new Color(0.8156f, 0.8156f, 0.7843f);
 
+    private GameObject white_Square;
     private GameObject blue_Menu;
     private GameObject spr_00;
 
@@ -171,7 +182,7 @@ public class inicio : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.X))
             {
-                if (index_Start_Menu > 0f)
+                if (index_Start_Menu > 0)
                 {
                     index_Start_Menu--;
                     Start_Menu(index_Start_Menu);
@@ -179,10 +190,8 @@ public class inicio : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
             {
-                index_Help_Menu = 0;
                 Help_Menu(index_Help_Menu);
                 help = true;
-
             }
 
         }
@@ -191,16 +200,138 @@ public class inicio : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                index_Help_Menu++;
-                Help_Menu(index_Help_Menu);
 
+                if (index_Help_Menu == 1)
+                {
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        if (option == 0)
+                        {
+                            index_Help_Menu++;
+                            Help_Menu(index_Help_Menu);
+                        }
+                        else
+                        {
+                            help = false;
+                            if (white_Square)
+                            {
+                                if (white_Square.activeInHierarchy)
+                                {
+                                    white_Square.SetActive(false);
+                                }
+                            }
+                            Start_Menu(index_Start_Menu);
+                        }
+                    }
+                }
+                    //Case 0
+                else
+                {
+                    index_Help_Menu++;
+                    Help_Menu(index_Help_Menu);
+
+                }
             }
+
             if (Input.GetKeyDown(KeyCode.X))
             {
                 if (index_Help_Menu == 1)
                 {
                     help = false;
+                    if (white_Square)
+                    {
+                        if (white_Square.activeInHierarchy)
+                        {
+                            white_Square.SetActive(false);
+                        }
+                    }
                     Start_Menu(index_Start_Menu);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (index_Help_Menu == 1 && option != 0)
+                {
+                    texts[2].GetComponent<Text>().text = start_Menu_Texts[11];
+
+                    foreach (GameObject arrow2 in sprites)
+                    {
+                        if (arrow2 != null)
+                        {
+                            if (arrow2.name.Contains("arrow_2"))
+                            {
+                                arrow2.GetComponent<RectTransform>().anchoredPosition = new Vector2(arrow2.GetComponent<RectTransform>().anchoredPosition.x, arrow2.GetComponent<RectTransform>().anchoredPosition.y + 15f);
+                                option--;
+                            }
+                        }
+                    }
+
+                    foreach (GameObject textSombra in shadowText)
+                    {
+                        if (textSombra.name.Contains("text_11"))
+                        {
+                            textSombra.GetComponent<Text>().color = shadowColor2;
+                            textSombra.GetComponent<Text>().text = texts[2].gameObject.GetComponent<Text>().text;
+                        }
+                    }
+                }
+                if (index_Help_Menu == 2 && option != 0)
+                {
+                    foreach (GameObject arrow2 in sprites)
+                    {
+                        if (arrow2 != null)
+                        {
+                            if (arrow2.name.Contains("arrow_2"))
+                            {
+                                arrow2.GetComponent<RectTransform>().anchoredPosition = new Vector2(arrow2.GetComponent<RectTransform>().anchoredPosition.x, arrow2.GetComponent<RectTransform>().anchoredPosition.y + 15f);
+                                option--;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (index_Help_Menu == 1 && option != 1)
+                {
+                    texts[2].GetComponent<Text>().text = start_Menu_Texts[12];
+
+                    foreach (GameObject arrow2 in sprites)
+                    {
+                        if (arrow2 != null)
+                        {
+                            if (arrow2.name.Contains("arrow_2"))
+                            {
+                                arrow2.GetComponent<RectTransform>().anchoredPosition = new Vector2(arrow2.GetComponent<RectTransform>().anchoredPosition.x, arrow2.GetComponent<RectTransform>().anchoredPosition.y - 15f);
+                                option++;
+                            }
+                        }
+                    }
+
+                    foreach (GameObject textSombra in shadowText)
+                    {
+                        if (textSombra.name.Contains("text_11"))
+                        {
+                            textSombra.GetComponent<Text>().color = shadowColor2;
+                            textSombra.GetComponent<Text>().text = texts[2].gameObject.GetComponent<Text>().text;
+                        }
+                    }
+                }
+                if (index_Help_Menu == 2 && option != 3)
+                {
+                    foreach (GameObject arrow2 in sprites)
+                    {
+                        if (arrow2 != null)
+                        {
+                            if (arrow2.name.Contains("arrow_2"))
+                            {
+                                arrow2.GetComponent<RectTransform>().anchoredPosition = new Vector2(arrow2.GetComponent<RectTransform>().anchoredPosition.x, arrow2.GetComponent<RectTransform>().anchoredPosition.y - 15f);
+                                option++;
+                            }
+                        }
+                    }
                 }
 
             }
@@ -208,7 +339,7 @@ public class inicio : MonoBehaviour
         }
 
 
-
+        print(index_Help_Menu);
 
 
 
@@ -262,39 +393,39 @@ public class inicio : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            GameObject textShadow = Instantiate(text);
-            textShadow.name = text.name + "_" + i + "_shadow";
-            textShadow.GetComponent<RectTransform>().SetParent(blue_Menu.GetComponent<RectTransform>(), false);
-            textShadow.GetComponent<RectTransform>().anchoredPosition =
+            GameObject shadowTextInst = Instantiate(text);
+            shadowTextInst.name = text.name + "_" + i + "_shadow";
+            shadowTextInst.GetComponent<RectTransform>().SetParent(blue_Menu.GetComponent<RectTransform>(), false);
+            shadowTextInst.GetComponent<RectTransform>().anchoredPosition =
             text.GetComponent<RectTransform>().anchoredPosition;
-            textShadow.GetComponent<RectTransform>().SetSiblingIndex(i);
-            textShadow.GetComponent<Text>().color = new Color(0.3764f, 0.3764f, 0.3764f);
+            shadowTextInst.GetComponent<RectTransform>().SetSiblingIndex(i);
+            shadowTextInst.GetComponent<Text>().color = shadowColor;
 
             Vector2 textOriginalPos = text.GetComponent<RectTransform>().anchoredPosition;
             if (i == 0)
             {
-                textShadow.GetComponent<RectTransform>().anchoredPosition =
+                shadowTextInst.GetComponent<RectTransform>().anchoredPosition =
                     new Vector2(textOriginalPos.x + 1f,
                         textOriginalPos.y);
             }
             if (i == 1)
             {
-                textShadow.GetComponent<RectTransform>().anchoredPosition = new Vector2(textOriginalPos.x,
+                shadowTextInst.GetComponent<RectTransform>().anchoredPosition = new Vector2(textOriginalPos.x,
                     textOriginalPos.y - 1f);
             }
             if (i == 2)
             {
-                textShadow.GetComponent<RectTransform>().anchoredPosition =
+                shadowTextInst.GetComponent<RectTransform>().anchoredPosition =
                     new Vector2(textOriginalPos.x + 1f,
                         textOriginalPos.y - 1f);
             }
 
-            for (int j = 0; j < text_Sombras.Length; j++)
+            for (int j = 0; j < shadowText.Length; j++)
             {
-                if (text_Sombras[j] == null)
+                if (shadowText[j] == null)
                 {
-                    text_Sombras[j] = textShadow;
-                    j = text_Sombras.Length;
+                    shadowText[j] = shadowTextInst;
+                    j = shadowText.Length;
                 }
             }
 
@@ -310,6 +441,7 @@ public class inicio : MonoBehaviour
             sprite.GetComponent<RectTransform>().SetParent(blue_Menu.GetComponent<RectTransform>(), false);
             sprite.GetComponent<Image>().SetNativeSize();
             sprite.GetComponent<RectTransform>().anchoredPosition = spr_Pos[indexPos];
+            sprite.name = sprite.GetComponent<Image>().sprite.name;
             sprite.layer = 5;
             
 
@@ -326,15 +458,16 @@ public class inicio : MonoBehaviour
     }
 
 
-    //TODO Función para las escenas
     void Start_Menu(int index)
     {
-        for (int i = 0; i < text_Sombras.Length; i++)
+        blue_Menu.GetComponent<Image>().sprite = backgrounds[0];
+
+        for (int i = 0; i < shadowText.Length; i++)
         {
-            if (text_Sombras[i] != null)
+            if (shadowText[i] != null)
             {
-                Destroy(text_Sombras[i]);
-                text_Sombras[i] = null;
+                Destroy(shadowText[i]);
+                shadowText[i] = null;
             }
         }
 
@@ -395,14 +528,22 @@ public class inicio : MonoBehaviour
 
     void Help_Menu(int index)
     {
-        //TODO Case Help
+        blue_Menu.GetComponent<Image>().sprite = backgrounds[1];
 
-        for (int i = 0; i < text_Sombras.Length; i++)
+        if (white_Square)
         {
-            if (text_Sombras[i] != null)
+            if (white_Square.activeInHierarchy)
             {
-                Destroy(text_Sombras[i]);
-                text_Sombras[i] = null;
+                white_Square.SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < shadowText.Length; i++)
+        {
+            if (shadowText[i] != null)
+            {
+                Destroy(shadowText[i]);
+                shadowText[i] = null;
             }
         }
 
@@ -427,33 +568,70 @@ public class inicio : MonoBehaviour
 
         switch (index)
         {
+              
             case 0:
-                blue_Menu.GetComponent<Image>().sprite = backgrounds[1];
                 Sprite_Function(0, 9);
                 Text_Function(8, 7);
                 Text_Function(9, 8);
                 break;
             case 1:
+                option = 0;
                 Text_Function(8, 7);
                 Text_Function(10, 9);
+                Text_Function(11, 10);
                 Sprite_Function(8, 10);
                 Sprite_Function(9, 11);
                 Sprite_Function(10, 12);
-                
-                //TODO width = 208 height = 40
-                GameObject white_Square = new GameObject();
-                white_Square.AddComponent<Image>();
-                white_Square.GetComponent<Image>().color = new Color(0.9725f, 0.9725f, 0.9725f);
-                white_Square.GetComponent<RectTransform>().SetParent(blue_Menu.GetComponent<RectTransform>());
-                white_Square.GetComponent<RectTransform>().SetSiblingIndex(0);
-                white_Square.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f,-52f);
-                print(white_Square.GetComponent<RectTransform>().rect.width);
-                Text_Function(11, 10);
+                Sprite_Function(12, 13);
+                if (white_Square == null)
+                {
+                    white_Square = new GameObject();
+                    white_Square.AddComponent<Image>();
+                    white_Square.GetComponent<Image>().color = new Color(0.9725f, 0.9725f, 0.9725f);
+                    white_Square.GetComponent<RectTransform>().SetParent(blue_Menu.GetComponent<RectTransform>());
+                    white_Square.GetComponent<RectTransform>().SetSiblingIndex(0);
+                    white_Square.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -52f);
+                    white_Square.GetComponent<RectTransform>().sizeDelta = new Vector2(208, 40);
+                    white_Square.name = "White_Square";
+                }
+                else
+                {
+                    white_Square.SetActive(true);
+                }
+                texts[2].GetComponent<Text>().color = shadowColor;
+
+
+                foreach (GameObject textSombra in shadowText)
+                {
+                    if (textSombra.name.Contains("text_11"))
+                    {
+                        textSombra.GetComponent<Text>().color = shadowColor2;
+                        textSombra.GetComponent<Text>().text = texts[2].gameObject.GetComponent<Text>().text;
+                    }
+                }
+
 
 
                 break;
             case 2:
+                option = 0;
+                Text_Function(8, 7);
+                Text_Function(13, 8);
+                Text_Function(14, 11);
+                Sprite_Function(8, 14);
+                Sprite_Function(10, 15);
+                Sprite_Function(13, 16);
+                Sprite_Function(12, 17);
+
+
+
                 break;
+
+                //TODO HELP case 3
+            //case 3:
+            //    Text_Function(8, 7);
+            //    break;
+
 
         }
     }
