@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e5d28fea9930037448cbb370c7777143
-timeCreated: 1427822746
+timeCreated: 1427920507
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -28,6 +28,7 @@ TextureImporter:
     21300042: help_menu
     21300044: inicio_menu_ab_cancel
     21300046: inicio_menu_cancel
+    21300048: help_menu_01
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -310,6 +311,16 @@ TextureImporter:
         y: 500
         width: 38
         height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: help_menu_01
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 45
+        width: 240
+        height: 160
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
