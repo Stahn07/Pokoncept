@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class inicio : MonoBehaviour
@@ -22,9 +21,9 @@ public class inicio : MonoBehaviour
     public Font pokefont;
     public Sprite[] backgrounds;
 
-    private int index_Start_Menu;
-    private int index_Help_Menu;
-    private int option;
+    private int _indexStartMenu;
+    private int _indexHelpMenu;
+    private int _option;
 
     private Vector2[] spr_Pos =
     {
@@ -40,7 +39,7 @@ public class inicio : MonoBehaviour
         new Vector2(-92f, -1f),     //spr6_Menu_02 (Select)
         new Vector2(-92f, -40f),  //spr7_Menu_02 (LR)
 
-        //HELP
+        //HELP 8
         new Vector2(94f, 70f), //spr0_Help_Menu_0 (Next)
 
         new Vector2(43f, 70f), //spr8_Help_Menu_1 (Pick)
@@ -49,8 +48,9 @@ public class inicio : MonoBehaviour
 
         new Vector2(-100f, 45f), //spr12_Help_Menu_1 (Arrow_2)
 
-        //TODO Sprites que faltan y posiciones Arrow_2
-        //13
+        new Vector2(85f, 70f), //spr11_Help_Menu (AB_Cancel) 
+
+        //14
         new Vector2(28f, 70f), //spr8_Help_Menu_2 (Pick)
         new Vector2(56f, 70f), //spr10_Help_Menu_2 (Ok)
         new Vector2(89f,70f), //spr13_Help_Menu_2 (Cancel)
@@ -66,17 +66,15 @@ public class inicio : MonoBehaviour
         new Vector2(-66f, 26f), //text0_Menu_00
         new Vector2(-68f, -29f), //text1_Menu_00
 
-        new Vector2(-16f, 3f), //text0_Menu_01 && text0_Menu_02
+        new Vector2(-16f, 3f), //text0_Menu_01 || text0_Menu_02
         new Vector2(-16f, -53f), //text1_Menu_01
         new Vector2(-16f, -93f), //text2_Menu_01
 
         new Vector2(-16f, -37f), //text1_Menu_02
         new Vector2(-16f, -77f), //text2_Menu_02
 
-        //TODO Revisar escenas
-
-        new Vector2(-56f, 25f), //text0_Help_Menu_0 ~ Menu_2
-        new Vector2(-54f, 3f), //text1_Help_Menu_0 && text1_Help_Menu_2
+        new Vector2(-56f, 25f), //text0_Help_Menu_0 ~ Menu_3
+        new Vector2(-54f, 3f), //text1_Help_Menu_0 || text1_Help_Menu_1 || text1_Help_Menu_3
 
         new Vector2(-46f, -1f), //text1_Help_Menu_1
         new Vector2(-52f, -91f), //text2_Help_Menu_1
@@ -96,11 +94,10 @@ public class inicio : MonoBehaviour
     private Color shadowColor = new Color(0.3764f, 0.3764f, 0.3764f);
     private Color shadowColor2 = new Color(0.8156f, 0.8156f, 0.7843f);
 
-    private GameObject white_Square;
-    private GameObject blue_Menu;
-    private GameObject spr_00;
+    private GameObject _whiteSquare;
+    private GameObject _blueMenu;
 
-    private bool help;
+    private bool _help;
 
 
     private string[] start_Menu_Texts =
@@ -135,7 +132,7 @@ public class inicio : MonoBehaviour
     
 
     //TODO Textos HELP
-    private string[] textos_Menu_Help =
+    private string[] _textosMenuHelp =
     {
 
     };
@@ -145,7 +142,7 @@ public class inicio : MonoBehaviour
     private void Start()
     {
         text_Original = GameObject.Find("text_menu_azul");
-        blue_Menu = GameObject.Find("menu_Azul");
+        _blueMenu = GameObject.Find("menu_Azul");
 
         Sprite_Function(0, 0);
         Text_Function(0, 0);
@@ -167,91 +164,110 @@ public class inicio : MonoBehaviour
 
     private void Update()
     {
-        if (help != true)
+        if (_help != true)
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
-
-                if (index_Start_Menu < 2)
+                if (_indexStartMenu < 2)
                 {
-                    index_Start_Menu++;
-                    Start_Menu(index_Start_Menu);
+                    _indexStartMenu++;
+                    Start_Menu(_indexStartMenu);
                 }
             }
 
 
             if (Input.GetKeyDown(KeyCode.X))
             {
-                if (index_Start_Menu > 0)
+                if (_indexStartMenu > 0)
                 {
-                    index_Start_Menu--;
-                    Start_Menu(index_Start_Menu);
+                    _indexStartMenu--;
+                    Start_Menu(_indexStartMenu);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
-            {
-                Help_Menu(index_Help_Menu);
-                help = true;
-            }
-
         }
 
-        if (help)
+        if (_help)
         {
+            bool back = false;
             if (Input.GetKeyDown(KeyCode.Z))
             {
-
-                if (index_Help_Menu == 1)
+                if (_indexHelpMenu == 3)
                 {
-                    if (Input.GetKeyDown(KeyCode.Z))
+                    back = true;
+                }
+
+                if (_indexHelpMenu == 2)
+                {
+                    if (_option != 3)
                     {
-                        if (option == 0)
-                        {
-                            index_Help_Menu++;
-                            Help_Menu(index_Help_Menu);
-                        }
-                        else
-                        {
-                            help = false;
-                            if (white_Square)
-                            {
-                                if (white_Square.activeInHierarchy)
-                                {
-                                    white_Square.SetActive(false);
-                                }
-                            }
-                            Start_Menu(index_Start_Menu);
-                        }
+                        _indexHelpMenu++;
+                        Help_Menu(_indexHelpMenu);
+                    }
+                    else
+                    {
+                        back = true;
                     }
                 }
-                    //Case 0
-                else
+
+                if (_indexHelpMenu == 1)
                 {
-                    index_Help_Menu++;
-                    Help_Menu(index_Help_Menu);
+                    if (_option == 0)
+                    {
+                        _indexHelpMenu++;
+                        Help_Menu(_indexHelpMenu);
+                    }
+                    else
+                    {
+                        _help = false;
+                        if (_whiteSquare)
+                        {
+                            if (_whiteSquare.activeInHierarchy)
+                            {
+                                _whiteSquare.SetActive(false);
+                            }
+                        }
+                        Start_Menu(_indexStartMenu);
+                    }
+                }
+
+                if (_indexHelpMenu == 0)
+                {
+                    _indexHelpMenu++;
+                    Help_Menu(_indexHelpMenu);
 
                 }
+
+            if (back)
+            {
+                Help_Menu(--_indexHelpMenu);
             }
+        }
 
             if (Input.GetKeyDown(KeyCode.X))
             {
-                if (index_Help_Menu == 1)
+                if (_indexHelpMenu == 1)
                 {
-                    help = false;
-                    if (white_Square)
+                    _help = false;
+                    if (_whiteSquare)
                     {
-                        if (white_Square.activeInHierarchy)
+                        if (_whiteSquare.activeInHierarchy)
                         {
-                            white_Square.SetActive(false);
+                            _whiteSquare.SetActive(false);
                         }
                     }
-                    Start_Menu(index_Start_Menu);
+                    Start_Menu(_indexStartMenu);
+                }
+                if (_indexHelpMenu == 2)
+                {
+                    _indexHelpMenu--;
+                    Help_Menu(_indexHelpMenu);
+
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                if (index_Help_Menu == 1 && option != 0)
+                if (_indexHelpMenu == 1 && _option != 0)
                 {
                     texts[2].GetComponent<Text>().text = start_Menu_Texts[11];
 
@@ -262,7 +278,7 @@ public class inicio : MonoBehaviour
                             if (arrow2.name.Contains("arrow_2"))
                             {
                                 arrow2.GetComponent<RectTransform>().anchoredPosition = new Vector2(arrow2.GetComponent<RectTransform>().anchoredPosition.x, arrow2.GetComponent<RectTransform>().anchoredPosition.y + 15f);
-                                option--;
+                                _option--;
                             }
                         }
                     }
@@ -276,7 +292,7 @@ public class inicio : MonoBehaviour
                         }
                     }
                 }
-                if (index_Help_Menu == 2 && option != 0)
+                if (_indexHelpMenu == 2 && _option != 0)
                 {
                     foreach (GameObject arrow2 in sprites)
                     {
@@ -285,7 +301,7 @@ public class inicio : MonoBehaviour
                             if (arrow2.name.Contains("arrow_2"))
                             {
                                 arrow2.GetComponent<RectTransform>().anchoredPosition = new Vector2(arrow2.GetComponent<RectTransform>().anchoredPosition.x, arrow2.GetComponent<RectTransform>().anchoredPosition.y + 15f);
-                                option--;
+                                _option--;
                             }
                         }
                     }
@@ -294,7 +310,7 @@ public class inicio : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                if (index_Help_Menu == 1 && option != 1)
+                if (_indexHelpMenu == 1 && _option != 1)
                 {
                     texts[2].GetComponent<Text>().text = start_Menu_Texts[12];
 
@@ -305,7 +321,7 @@ public class inicio : MonoBehaviour
                             if (arrow2.name.Contains("arrow_2"))
                             {
                                 arrow2.GetComponent<RectTransform>().anchoredPosition = new Vector2(arrow2.GetComponent<RectTransform>().anchoredPosition.x, arrow2.GetComponent<RectTransform>().anchoredPosition.y - 15f);
-                                option++;
+                                _option++;
                             }
                         }
                     }
@@ -319,7 +335,7 @@ public class inicio : MonoBehaviour
                         }
                     }
                 }
-                if (index_Help_Menu == 2 && option != 3)
+                if (_indexHelpMenu == 2 && _option != 3)
                 {
                     foreach (GameObject arrow2 in sprites)
                     {
@@ -328,7 +344,7 @@ public class inicio : MonoBehaviour
                             if (arrow2.name.Contains("arrow_2"))
                             {
                                 arrow2.GetComponent<RectTransform>().anchoredPosition = new Vector2(arrow2.GetComponent<RectTransform>().anchoredPosition.x, arrow2.GetComponent<RectTransform>().anchoredPosition.y - 15f);
-                                option++;
+                                _option++;
                             }
                         }
                     }
@@ -338,9 +354,42 @@ public class inicio : MonoBehaviour
 
         }
 
+        if ((_indexHelpMenu == 0 && _help) == false)
+        {
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
+            {
+                _help = !_help;
 
-        print(index_Help_Menu);
+                if (_help)
+                {
+                    Help_Menu(_indexHelpMenu);
+                }
+                else
+                {
+                    if (_whiteSquare)
+                    {
+                        if (_whiteSquare.activeInHierarchy)
+                        {
+                            _whiteSquare.SetActive(false);
+                        }
+                    }
+                    Start_Menu(_indexStartMenu);
 
+
+                }
+                if (_indexHelpMenu > 1)
+                {
+                    _indexHelpMenu = 1;
+                }
+
+            }
+        }
+
+
+
+
+        print("index_Help" + _indexHelpMenu);
+        print("option" + _option);
 
 
         //if (Time.time - opacityTime >= .25f && indexColor < opacidad.Length)
@@ -361,11 +410,11 @@ public class inicio : MonoBehaviour
 
         }
 
-    void Text_Function(int index_Text, int index_Pos)
+    void Text_Function(int indexText, int indexPos)
     {
         
             GameObject text = new GameObject();
-            text.GetComponent<Transform>().SetParent(blue_Menu.GetComponent<RectTransform>(), false);
+            text.GetComponent<Transform>().SetParent(_blueMenu.GetComponent<RectTransform>(), false);
             text.AddComponent<Text>();
             Text textComponent = text.GetComponent<Text>();
             textComponent.font = pokefont;
@@ -377,9 +426,9 @@ public class inicio : MonoBehaviour
             textComponent.resizeTextMinSize = 12;
             textComponent.resizeTextMaxSize = 1;
             text.layer = 5;
-            textComponent.text = start_Menu_Texts[index_Text];
-            text.GetComponent<RectTransform>().anchoredPosition = text_Pos[index_Pos];
-            text.name = "text_" + index_Text;
+            textComponent.text = start_Menu_Texts[indexText];
+            text.GetComponent<RectTransform>().anchoredPosition = text_Pos[indexPos];
+            text.name = "text_" + indexText;
 
 
             for (int i = 0; i < texts.Length; i++)
@@ -395,7 +444,7 @@ public class inicio : MonoBehaviour
         {
             GameObject shadowTextInst = Instantiate(text);
             shadowTextInst.name = text.name + "_" + i + "_shadow";
-            shadowTextInst.GetComponent<RectTransform>().SetParent(blue_Menu.GetComponent<RectTransform>(), false);
+            shadowTextInst.GetComponent<RectTransform>().SetParent(_blueMenu.GetComponent<RectTransform>(), false);
             shadowTextInst.GetComponent<RectTransform>().anchoredPosition =
             text.GetComponent<RectTransform>().anchoredPosition;
             shadowTextInst.GetComponent<RectTransform>().SetSiblingIndex(i);
@@ -438,7 +487,7 @@ public class inicio : MonoBehaviour
             GameObject sprite = new GameObject("spr_" + indexSprite);
             sprite.AddComponent<Image>();
             sprite.GetComponent<Image>().sprite = sprites_Menu_Azul[indexSprite];
-            sprite.GetComponent<RectTransform>().SetParent(blue_Menu.GetComponent<RectTransform>(), false);
+            sprite.GetComponent<RectTransform>().SetParent(_blueMenu.GetComponent<RectTransform>(), false);
             sprite.GetComponent<Image>().SetNativeSize();
             sprite.GetComponent<RectTransform>().anchoredPosition = spr_Pos[indexPos];
             sprite.name = sprite.GetComponent<Image>().sprite.name;
@@ -460,7 +509,7 @@ public class inicio : MonoBehaviour
 
     void Start_Menu(int index)
     {
-        blue_Menu.GetComponent<Image>().sprite = backgrounds[0];
+        _blueMenu.GetComponent<Image>().sprite = backgrounds[0];
 
         for (int i = 0; i < shadowText.Length; i++)
         {
@@ -528,13 +577,13 @@ public class inicio : MonoBehaviour
 
     void Help_Menu(int index)
     {
-        blue_Menu.GetComponent<Image>().sprite = backgrounds[1];
+        _blueMenu.GetComponent<Image>().sprite = backgrounds[1];
 
-        if (white_Square)
+        if (_whiteSquare)
         {
-            if (white_Square.activeInHierarchy)
+            if (_whiteSquare.activeInHierarchy)
             {
-                white_Square.SetActive(false);
+                _whiteSquare.SetActive(false);
             }
         }
 
@@ -575,7 +624,7 @@ public class inicio : MonoBehaviour
                 Text_Function(9, 8);
                 break;
             case 1:
-                option = 0;
+                _option = 0;
                 Text_Function(8, 7);
                 Text_Function(10, 9);
                 Text_Function(11, 10);
@@ -583,20 +632,20 @@ public class inicio : MonoBehaviour
                 Sprite_Function(9, 11);
                 Sprite_Function(10, 12);
                 Sprite_Function(12, 13);
-                if (white_Square == null)
+                if (_whiteSquare == null)
                 {
-                    white_Square = new GameObject();
-                    white_Square.AddComponent<Image>();
-                    white_Square.GetComponent<Image>().color = new Color(0.9725f, 0.9725f, 0.9725f);
-                    white_Square.GetComponent<RectTransform>().SetParent(blue_Menu.GetComponent<RectTransform>());
-                    white_Square.GetComponent<RectTransform>().SetSiblingIndex(0);
-                    white_Square.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -52f);
-                    white_Square.GetComponent<RectTransform>().sizeDelta = new Vector2(208, 40);
-                    white_Square.name = "White_Square";
+                    _whiteSquare = new GameObject();
+                    _whiteSquare.AddComponent<Image>();
+                    _whiteSquare.GetComponent<Image>().color = new Color(0.9725f, 0.9725f, 0.9725f);
+                    _whiteSquare.GetComponent<RectTransform>().SetParent(_blueMenu.GetComponent<RectTransform>());
+                    _whiteSquare.GetComponent<RectTransform>().SetSiblingIndex(0);
+                    _whiteSquare.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -52f);
+                    _whiteSquare.GetComponent<RectTransform>().sizeDelta = new Vector2(208, 40);
+                    _whiteSquare.name = "White_Square";
                 }
                 else
                 {
-                    white_Square.SetActive(true);
+                    _whiteSquare.SetActive(true);
                 }
                 texts[2].GetComponent<Text>().color = shadowColor;
 
@@ -614,23 +663,39 @@ public class inicio : MonoBehaviour
 
                 break;
             case 2:
-                option = 0;
                 Text_Function(8, 7);
                 Text_Function(13, 8);
                 Text_Function(14, 11);
-                Sprite_Function(8, 14);
-                Sprite_Function(10, 15);
-                Sprite_Function(13, 16);
-                Sprite_Function(12, 17);
+                Sprite_Function(8, 15);
+                Sprite_Function(9, 16);
+                Sprite_Function(13, 17);
+                //TODO Función para colocar pos en menús con flecha (+15, -15)
+                Sprite_Function(12, 18);
+                break;
 
+                //TODO Color Fondo
+            case 3:
+                Text_Function(8, 7);
+                Sprite_Function(11,14);
+                if (_option == 0)
+                {
+                Text_Function(15,8);
+                Text_Function(16,12);
+                }
+                if (_option == 1)
+                {
+                Text_Function(17,8);
+                Text_Function(18,12);
+                }
+
+                if (_option == 2)
+                {
+                Text_Function(19,8);
+                Text_Function(20,12);
+                }
 
 
                 break;
-
-                //TODO HELP case 3
-            //case 3:
-            //    Text_Function(8, 7);
-            //    break;
 
 
         }
